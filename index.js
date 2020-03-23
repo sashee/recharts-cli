@@ -12,8 +12,6 @@ exports.generateSvg = async (input) => {
 	const res = ReactDOMServer.renderToString(eval(transformedCode));
 
 	const $ = cheerio.load(res);
-	$("*").removeAttr("class");
-
 
 	return $.html("svg");
 };
