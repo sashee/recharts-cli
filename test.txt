@@ -1,0 +1,21 @@
+const data = [
+  { "uv": 13 },
+  { "uv": 13 },
+  { "uv": 14 },
+  { "uv": 13 },
+  { "uv": 13.5 },
+  { "uv": 70 },
+  { "uv": 75 },
+  { "uv": 78 }
+];
+
+<LineChart data={data} width={300} height={200}
+	margin={{ top: 10, right: 10, left: 0, bottom: 20 }}>
+	<CartesianGrid strokeDasharray="3 3" />
+	<YAxis>
+		<Label angle={-90}>$/month</Label>
+	</YAxis>
+	<ReferenceLine y={20} label="Threshold" stroke="red" strokeDasharray="3 3"/>
+	<ReferenceDot r={15} fill="red" x="5" y="70" label={<Label position="top">Alert</Label>}/>
+	<Line type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+</LineChart>
