@@ -1,4 +1,5 @@
 const babel = require("@babel/core");
+const preset = require("@babel/preset-react");
 const ReactDOMServer = require("react-dom/server");
 const cheerio = require("cheerio");
 
@@ -7,7 +8,7 @@ exports.generateSvg = async (input) => {
 	const React = require("react");
 	const {${Object.keys(require("recharts")).join(",")}} = require("recharts");
 	${input}
-	`, {presets: ["@babel/preset-react"]})).code;
+	`, {presets: [preset]})).code;
 	const res = ReactDOMServer.renderToString(eval(transformedCode));
 
 	const $ = cheerio.load(res);
